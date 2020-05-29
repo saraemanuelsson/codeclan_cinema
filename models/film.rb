@@ -1,4 +1,4 @@
-require_relative('./db/sql_runner')
+require_relative('../db/sql_runner')
 
 class Film
 
@@ -41,8 +41,13 @@ class Film
 
     def self.all()
         sql = "SELECT * FROM films"
-        films = SqlRunner(sql)
+        films = SqlRunner.run(sql)
         return Film.map_items(films)
+    end
+
+    def self.delete_all()
+        sql = "DELETE FROM films"
+        SqlRunner.run(sql)
     end
 
     def self.map_items(film_data)

@@ -13,9 +13,9 @@ class Customer
 
     def save()
         sql = "INSERT INTO customers
-        ( name, funds )
+        (name, funds)
         VALUES
-        ( $1, $2 )
+        ($1, $2 )
         RETURNING id"
         values = [@name, @funds]
         id = SqlRunner.run(sql, values)[0]['id']
@@ -42,7 +42,7 @@ class Customer
     def self.all()
         sql = "SELECT * FROM customers"
         customers = SqlRunner.run(sql)
-        return customers.map_items
+        return Customer.map_items(customers)
     end
 
     def self.delete_all()

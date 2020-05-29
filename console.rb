@@ -23,17 +23,17 @@ avengers.save()
 theory_of_everything.save()
 fast_and_furious.save()
 
-ticket1 = Ticket.new({ 'customer_id' => harry.id, 'film_id' => avengers.id })
-ticket2 = Ticket.new({ 'customer_id' => hermione.id, 'film_id' => theory_of_everything.id })
-ticket3 = Ticket.new({ 'customer_id' => ron.id, 'film_id' => fast_and_furious.id })
-ticket4 = Ticket.new({ 'customer_id' => harry.id, 'film_id' => fast_and_furious.id })
-ticket5 = Ticket.new({ 'customer_id' => ron.id, 'film_id' => theory_of_everything.id })
+# ticket1 = Ticket.new({ 'customer_id' => harry.id, 'film_id' => avengers.id })
+# ticket2 = Ticket.new({ 'customer_id' => hermione.id, 'film_id' => theory_of_everything.id })
+# ticket3 = Ticket.new({ 'customer_id' => ron.id, 'film_id' => fast_and_furious.id })
+# ticket4 = Ticket.new({ 'customer_id' => harry.id, 'film_id' => fast_and_furious.id })
+# ticket5 = Ticket.new({ 'customer_id' => ron.id, 'film_id' => theory_of_everything.id })
 
-ticket1.save()
-ticket2.save()
-ticket3.save()
-ticket4.save()
-ticket5.save()
+# ticket1.save()
+# ticket2.save()
+# ticket3.save()
+# ticket4.save()
+# ticket5.save()
 
 binding.pry
 
