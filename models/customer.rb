@@ -45,6 +45,11 @@ class Customer
         return customers.map_items
     end
 
+    def self.delete_all()
+        sql = "DELETE FROM customers"
+        SqlRunner.run(sql)
+    end
+
     def self.map_items(customer_data)
         return customer_data.map { |customer| Customer.new(customer) }
     end
