@@ -40,6 +40,16 @@ class Screening
         values = [@id]
         SqlRunner.run(sql, values)
     end
+    
+    def film()
+        sql = "SELECT films.* FROM films
+        INNER JOIN screenings
+        ON films.id = screenings.film_id
+        WHERE screenings.id = $1"
+        values = [@id]
+        film_data = SqlRunner.run(sql, values)[0]
+        return Film.new(film_data)
+    end
 
     def increase_tickets_sold()
         @tickets_sold += 1
