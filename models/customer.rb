@@ -61,6 +61,11 @@ class Customer
         decrease_funds(price)
     end
 
+    def number_of_tickets_bought()
+        result = films.size()
+        return result
+    end
+
     def self.all()
         sql = "SELECT * FROM customers"
         customers = SqlRunner.run(sql)

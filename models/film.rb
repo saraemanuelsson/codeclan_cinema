@@ -52,8 +52,6 @@ class Film
         return Customer.map_items(customers)
     end
 
-    def
-
     def self.all()
         sql = "SELECT * FROM films"
         films = SqlRunner.run(sql)
