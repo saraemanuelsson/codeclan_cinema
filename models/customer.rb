@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('./film')
 
 class Customer
 
@@ -49,6 +50,10 @@ class Customer
         values = [@id]
         films = SqlRunner.run(sql, values)
         return Film.map_items(films)
+    end
+
+    def decrease_funds(amount)
+        return @funds -= amount
     end
 
     def self.all()
