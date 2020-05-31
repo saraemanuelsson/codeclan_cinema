@@ -68,12 +68,16 @@ class Customer
     # end
 
     def buy_ticket(screening)
-        film = screening.film()
-        price = film.price
-        decrease_funds(price)
-        new_ticket = Ticket.new({'customer_id' => @id, 'film_id' => film.id, 'screening_id' => screening.id })
-        new_ticket.save()
-        screening.increase_tickets_sold()
+        if screening.capacity > screening.tickets_sold
+            film = screening.film()
+            price = film.price
+            decrease_funds(price)
+            new_ticket = Ticket.new({'customer_id' => @id, 'film_id' => film.id, 'screening_id' => screening.id })
+            new_ticket.save()
+            screening.increase_tickets_sold()
+        else
+            p "Sorry, no tickets available. Please pick a different screening time"
+        end
     end
 
     def number_of_tickets_bought()
