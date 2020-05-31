@@ -29,11 +29,13 @@ screening1 = Screening.new({ 'time' => '18:00', 'film_id' => avengers.id, 'capac
 screening2 = Screening.new({ 'time' => '20:00', 'film_id' => theory_of_everything.id, 'capacity' => 10 })
 screening3 = Screening.new({ 'time' => '21:30', 'film_id' => fast_and_furious.id, 'capacity' => 25 })
 screening4 = Screening.new({ 'time' => '22:00', 'film_id' => fast_and_furious.id, 'capacity' => 38 })
+screening5 = Screening.new({ 'time' => '06:00', 'film_id' => theory_of_everything.id, 'capacity' => 70 })
 
 screening1.save()
 screening2.save()
 screening3.save()
 screening4.save()
+screening5.save()
 
 ticket1 = Ticket.new({ 'customer_id' => harry.id, 'film_id' => avengers.id, 'screening_id' => screening1.id })
 ticket2 = Ticket.new({ 'customer_id' => hermione.id, 'film_id' => theory_of_everything.id, 'screening_id' => screening2.id })

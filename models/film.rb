@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('./customer')
+require_relative('./screening')
 
 class Film
 
@@ -63,7 +64,8 @@ class Film
     end
 
     def most_popular_screening_time()
-        
+        movies_by_tickets = screenings.sort_by{ |time, film_id, capacity, tickets_sold| tickets_sold }
+        return movies_by_tickets.first
     end
 
     def number_of_customers_watching()

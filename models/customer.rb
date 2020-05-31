@@ -54,8 +54,8 @@ class Customer
     end
 
     def decrease_funds(amount)
-        return @funds -= amount
-        save()
+        @funds -= amount
+        update()
     end
 
     def buy_ticket(film)

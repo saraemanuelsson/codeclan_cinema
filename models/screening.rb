@@ -41,6 +41,11 @@ class Screening
         SqlRunner.run(sql, values)
     end
 
+    def increase_tickets_sold()
+        @tickets_sold += 1
+        update()
+    end
+
     def self.all()
         sql = "SELECT * FROM screenings"
         screenings = SqlRunner.run(sql)
