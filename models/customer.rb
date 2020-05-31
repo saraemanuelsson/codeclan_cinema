@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('./film')
+require_relative('./ticket')
 
 class Customer
 
@@ -54,11 +55,14 @@ class Customer
 
     def decrease_funds(amount)
         return @funds -= amount
+        save()
     end
 
     def buy_ticket(film)
         price = film.price
         decrease_funds(price)
+        new_ticket = Ticket.new({'customer_id' => @id, 'film_id' => film.id })
+        new_ticket.save()
     end
 
     def number_of_tickets_bought()
