@@ -59,24 +59,23 @@ class Customer
         update()
     end
 
-    # def buy_ticket(film, screening)
-    #     price = film.price
-    #     decrease_funds(price)
-    #     new_ticket = Ticket.new({'customer_id' => @id, 'film_id' => film.id })
-    #     new_ticket.save()
-    #     screening.increase_tickets_sold()
-    # end
-
     def buy_ticket(screening)
-        if screening.capacity > screening.tickets_sold
-            film = screening.film()
-            price = film.price
-            decrease_funds(price)
-            new_ticket = Ticket.new({'customer_id' => @id, 'film_id' => film.id, 'screening_id' => screening.id })
-            new_ticket.save()
-            screening.increase_tickets_sold()
+        film = screening.film()
+        price = film.price
+
+        if @funds >= price
+            if screening.capacity > screening.tickets_sold
+                film = screening.film()
+                price = film.price
+                decrease_funds(price)
+                new_ticket = Ticket.new({'customer_id' => @id, 'film_id' => film.id, 'screening_id' => screening.id })
+                new_ticket.save()
+                screening.increase_tickets_sold()
+            else
+                p "Sorry, no tickets available. Please pick a different screening time"
+            end
         else
-            p "Sorry, no tickets available. Please pick a different screening time"
+            p "Ooops, not enough money"
         end
     end
 
