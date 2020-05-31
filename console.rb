@@ -25,18 +25,6 @@ avengers.save()
 theory_of_everything.save()
 fast_and_furious.save()
 
-ticket1 = Ticket.new({ 'customer_id' => harry.id, 'film_id' => avengers.id })
-ticket2 = Ticket.new({ 'customer_id' => hermione.id, 'film_id' => theory_of_everything.id })
-ticket3 = Ticket.new({ 'customer_id' => ron.id, 'film_id' => fast_and_furious.id })
-ticket4 = Ticket.new({ 'customer_id' => harry.id, 'film_id' => fast_and_furious.id })
-ticket5 = Ticket.new({ 'customer_id' => ron.id, 'film_id' => theory_of_everything.id })
-
-ticket1.save()
-ticket2.save()
-ticket3.save()
-ticket4.save()
-ticket5.save()
-
 screening1 = Screening.new({ 'time' => '18:00', 'film_id' => avengers.id, 'tickets' => 50 })
 screening2 = Screening.new({ 'time' => '20:00', 'film_id' => theory_of_everything.id, 'tickets' => 10 })
 screening3 = Screening.new({ 'time' => '21:30', 'film_id' => fast_and_furious.id, 'tickets' => 25 })
@@ -46,6 +34,20 @@ screening1.save()
 screening2.save()
 screening3.save()
 screening4.save()
+
+ticket1 = Ticket.new({ 'customer_id' => harry.id, 'film_id' => avengers.id, 'screening_id' => screening1.id })
+ticket2 = Ticket.new({ 'customer_id' => hermione.id, 'film_id' => theory_of_everything.id, 'screening_id' => screening2.id })
+ticket3 = Ticket.new({ 'customer_id' => ron.id, 'film_id' => fast_and_furious.id, 'screening_id' => screening4.id })
+ticket4 = Ticket.new({ 'customer_id' => harry.id, 'film_id' => fast_and_furious.id, 'screening_id' => screening3.id })
+ticket5 = Ticket.new({ 'customer_id' => ron.id, 'film_id' => theory_of_everything.id, 'screening_id' => screening2.id })
+
+ticket1.save()
+ticket2.save()
+ticket3.save()
+ticket4.save()
+ticket5.save()
+
+
 
 binding.pry
 

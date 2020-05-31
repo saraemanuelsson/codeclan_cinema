@@ -55,5 +55,4 @@ class Screening
         screening_data.map { |screening| Screening.new(screening) }
     end
 
-
 end
