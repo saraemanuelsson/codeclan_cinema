@@ -62,6 +62,10 @@ class Film
         return Screening.map_items(screenings)
     end
 
+    def most_popular_screening_time()
+        
+    end
+
     def number_of_customers_watching()
         result = customers.size
         return result
