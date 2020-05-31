@@ -65,8 +65,6 @@ class Customer
 
         if @funds >= price
             if screening.capacity > screening.tickets_sold
-                film = screening.film()
-                price = film.price
                 decrease_funds(price)
                 new_ticket = Ticket.new({'customer_id' => @id, 'film_id' => film.id, 'screening_id' => screening.id })
                 new_ticket.save()
