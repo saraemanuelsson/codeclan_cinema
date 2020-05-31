@@ -52,6 +52,16 @@ class Film
         return Customer.map_items(customers)
     end
 
+    def screenings()
+        sql = "SELECT screenings.* FROM screenings
+        INNER JOIN films
+        ON screenings.film_id = films.id
+        WHERE film_id = $1"
+        values = [@id]
+        screenings = SqlRunner.run(sql, values)
+        return Screening.map_items(screenings)
+    end
+
     def number_of_customers_watching()
         result = customers.size
         return result
