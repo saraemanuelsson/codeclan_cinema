@@ -23,6 +23,16 @@ class Screening
         @id = id.to_i
     end
 
+    def update()
+        sql = "UPDATE screenings SET
+        ( time, film_id, tickets )
+        =
+        ( $1, $2, $3 )
+        WHERE id = $4"
+        values = [@name, @film_id, @tickets, $id]
+        SqlRunner.run(sql, values)
+    end
+
     def self.delete_all()
         sql = "DELETE FROM screenings"
         SqlRunner.run(sql)
