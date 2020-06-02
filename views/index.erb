@@ -6,10 +6,14 @@
         </head>
         <body>
             <h1>Films</h1>
+                <nav>
                 <ul>
                     <% for film in @films %>
-                        <li><%=film.title%></li>
+                        <li>
+                            <a href="/films/<%=film.id%>"><%=film.title%></a>
+                        </li>
                     <% end %>
                 </ul>
+                </nav>
         </body>
     </html>

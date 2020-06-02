@@ -73,6 +73,14 @@ class Film
         return result
     end
 
+    def self.find_by_id(id)
+        sql = "SELECT * FROM films
+        WHERE id = $1"
+        values = [id]
+        film = SqlRunner.run(sql, values)[0]
+        return Film.new(film)
+    end
+
     def self.all()
         sql = "SELECT * FROM films"
         films = SqlRunner.run(sql)
