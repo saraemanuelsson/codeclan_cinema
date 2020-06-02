@@ -9,14 +9,7 @@ get '/films' do
     erb ( :index )
 end
 
-get '/films/130' do
-    erb ( :avengers )
-end
-
-get '/films/131' do
-    erb ( :theory_of_everything )
-end
-
-get '/films/132' do
-    erb ( :fast_and_furious )
+get '/films/:id' do
+    @film = Film.find_by_id(params['id'])
+    erb ( :film )
 end
